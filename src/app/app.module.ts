@@ -39,6 +39,7 @@ import { CreateStickyComponent } from './sticky/components/create-sticky/create-
 import { EditStickyComponent } from './sticky/components/edit-sticky/edit-sticky.component';
 import { CreateCategoryComponent } from './category/components/create-category/create-category.component';
 import { StickyDashboardComponent } from './sticky/components/sticky-dashboard/sticky-dashboard.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { StickyDashboardComponent } from './sticky/components/sticky-dashboard/s
     CreateStickyComponent,
     EditStickyComponent,
     CreateCategoryComponent,
-    StickyDashboardComponent
+    StickyDashboardComponent,
+    RegisterComponent
   ],
   imports: [
     DragDropModule,
