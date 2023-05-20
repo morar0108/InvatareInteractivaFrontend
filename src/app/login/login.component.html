@@ -1,0 +1,61 @@
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-4 mt-3 mb-2">
+      <h3 class="text" style="font-size: 30px; color: #4a4e69"><b>Welcome To Sticky App</b></h3>
+
+      <form action="" class="mt-5 login-form" [formGroup]="formGroup" (ngSubmit)="checkActive()">
+        <h5 class="text" style="font-size: 25px; color: #4a4e69">Login</h5>
+        <div>
+          <mat-icon>person</mat-icon>
+          <mat-form-field class="mat-form">
+            <input matInput placeholder="Username" formControlName="username" class="credentials">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-icon>lock</mat-icon>
+          <mat-form-field class="mat-form">
+            <input matInput type="password" placeholder="Password" formControlName="password" class="credentials">
+          </mat-form-field>
+        </div>
+        <p class="mat-error" *ngIf="showErrorMessage">
+          Invalid credentials
+        </p>
+        <p class="mat-error" *ngIf="showUserDeact">
+          Deactivated: 5 failed attempts
+        </p>
+        <p class="mat-error" *ngIf="showErrorInactive">
+          User inactive
+        </p>
+        <div>
+          <table>
+            <tr>
+              <td class="first-td" style="background-image: url('../../assets/images/captcha-bg.png')">
+                <canvas width="220" height="60" class="canvas" id="canvas"></canvas>
+              </td>
+              <td>
+                <img (click)="regenerateCaptcha()" class="refresh-btn" height="30px" width="30px"id="refresh-img">
+              </td>
+            </tr>
+            <tr>
+              <td><input type="text" size="30" id="typedText" placeholder="Enter captcha" class="inputText"></td>
+              <td><button type="submit" (click)="checkCaptcha()" class="check" id="login-button">Login</button></td>
+            </tr>
+          </table>
+          <div>
+            <p class="mat-error" *ngIf="showErrorCaptcha">
+              Invalid captcha
+            </p>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="col-md-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+</body>

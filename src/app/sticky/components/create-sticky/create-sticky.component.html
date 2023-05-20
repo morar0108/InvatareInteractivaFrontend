@@ -1,0 +1,17 @@
+<mat-card class="form-box">
+  <form class="my-form" [formGroup]="stickyForm">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title" >
+    </mat-form-field>
+    <br><br>
+    <mat-form-field>
+      <input matInput placeholder="Description" formControlName="description" >
+    </mat-form-field>
+    <br><br>
+    <mat-form-field>
+      <input matInput placeholder="Category name" formControlName="categoryName" >
+    </mat-form-field>
+    <br><br>
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+  </form>
+</mat-card>

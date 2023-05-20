@@ -1,0 +1,73 @@
+.container {
+  padding: 20px;
+}
+
+.add-button {
+  float: right;
+  margin-left: 1000px;
+}
+
+.sticky-card {
+  margin-bottom: 20px;
+  background-color: cornflowerblue;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.mat-card-header {
+  background-color: cornflowerblue;
+  padding: 12px;
+}
+
+.mat-card-title,
+.mat-card-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+}
+
+.edit-button,
+.delete-button {
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0;
+  left: 1000px;
+}
+
+.edit-button {
+  margin-right: 8px;
+}
+
+.delete-button {
+  background-color: transparent;
+}
+
+.edit-button .mat-icon,
+.delete-button .mat-icon {
+  font-size: 16px;
+  color: white;
+}
+
+.edit-button-text,
+.delete-button-text {
+  font-size: 12px;
+  color: white;
+}
+
+.mat-card-content {
+  padding: 12px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
