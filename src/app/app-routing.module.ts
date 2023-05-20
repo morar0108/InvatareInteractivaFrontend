@@ -4,6 +4,7 @@ import {StickyDashboardComponent} from "./sticky/components/sticky-dashboard/sti
 import {LoginComponent} from "./login/login.component";
 import {CreateStickyComponent} from "./sticky/components/create-sticky/create-sticky.component";
 import {EditStickyComponent} from "./sticky/components/edit-sticky/edit-sticky.component";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'edit-sticky',
     component: EditStickyComponent
+  },
+  {
+    path:'register',
+    component: RegisterComponent
   }
 ];
 

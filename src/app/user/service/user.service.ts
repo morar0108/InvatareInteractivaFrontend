@@ -42,12 +42,6 @@ export class UserService {
     return this.backendService.post("http://localhost:4201/user", user);
   }
 
-  changePassword(newPassword: string, oldPassword: string): Observable<any>{
-    const username = localStorage.getItem('username');
-    const url = `http://localhost:4201/passwordChange?username=${username}&oldPassword=${oldPassword}&newPassword=${newPassword}`;
-    // @ts-ignore
-    return this.backendService.post(url);
-  }
 
   updateUser(user: User): Observable<any>{
     return this.backendService.put("http://localhost:4201/userUpdate", user);
