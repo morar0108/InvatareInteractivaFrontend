@@ -1,15 +1,16 @@
 <mat-card class="form-box">
   <form class="my-form" [formGroup]="stickyEditForm">
+    <h2 class="edit-note-title">Edit note</h2>
     <mat-form-field>
       <input matInput placeholder="Title" formControlName="title" >
     </mat-form-field>
     <br><br>
     <mat-form-field>
-      <textarea matInput placeholder="Sticky note content" formControlName="description"></textarea>
+      <input matInput placeholder="Category name" formControlName="categoryName" >
     </mat-form-field>
     <br><br>
     <mat-form-field>
-      <input matInput placeholder="Category name" formControlName="categoryName" >
+      <textarea matInput placeholder="Sticky note content" formControlName="description"></textarea>
     </mat-form-field>
     <br><br>
     <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>

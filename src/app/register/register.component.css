@@ -1,0 +1,84 @@
+.register-form{
+  width: 325px;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+  background: #ffeb97;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 5px 5px;
+  clip-path: polygon(90% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
+  position: relative;
+}
+
+.note-crease {
+  clip-path: polygon(0 -4%, 0% 100%, 100% 100%);
+  background-color: #dbc46b;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: -2px;
+  top: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.register-input{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+
+.buttons-container{
+  margin-top: 20px;
+}
+
+#login-button {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  height: 38px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background-image: linear-gradient(180deg, #7c8aff, #3c4fe0);
+  box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+  transition: all .2s ease-out;
+  width: 100px;
+  margin-right: 10px;
+}
+
+#login-button:hover {
+  box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+}
+
+#register-button {
+
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: rgb(72, 76, 122);
+  font-size: 14px;
+  height: 38px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background-image: linear-gradient(180deg,#fff,#f5f5fa);
+  box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+  transition: all .2s ease-out;
+  width: 100px;
+}
+#register-button:hover{
+  box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+}

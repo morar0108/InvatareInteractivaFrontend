@@ -1,38 +1,54 @@
-<form [formGroup]="registerForm" (ngSubmit)="registerUser()">
-    <div>
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" formControlName="firstName">
-    </div>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mt-3 mb-2">
+      <h3 class="text" style="font-size: 30px; color: #fff"><b>Register To Sticky App</b></h3>
 
-    <div>
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" formControlName="lastName">
-    </div>
+      <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="register-form">
+        <div class="note-crease"></div>
+        <h5 class="text" style="font-size: 25px; color: #2f2d37">Register</h5>
+        <div class="register-input">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" formControlName="firstName">
+        </div>
 
-    <div>
-      <label for="mobileNumber">Mobile Number</label>
-      <input type="text" id="mobileNumber" formControlName="mobileNumber">
-    </div>
+        <div class="register-input">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" formControlName="lastName">
+        </div>
 
-    <div>
-      <label for="gender">Gender</label>
-      <input type="text" id="gender" formControlName="gender">
-    </div>
+        <div class="register-input">
+          <label for="mobileNumber">Mobile Number</label>
+          <input type="text" id="mobileNumber" formControlName="mobileNumber">
+        </div>
 
-    <div>
-      <label for="email">Email</label>
-      <input type="email" id="email" formControlName="email">
-    </div>
+        <div class="register-input">
+          <label for="gender">Gender</label>
+          <input type="text" id="gender" formControlName="gender">
+        </div>
 
-    <div>
-      <label for="username">Username</label>
-      <input type="text" id="username" formControlName="username">
-    </div>
+        <div class="register-input">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email">
+        </div>
 
-    <div>
-      <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password">
-    </div>
+        <div class="register-input">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username">
+        </div>
 
-    <button type="submit">Register</button>
-  </form>
+        <div class="register-input">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password">
+        </div>
+
+        <div class="buttons-container">
+          <button type="submit" (click)="login()" class="check" id="login-button">Login</button>
+          <button type="submit" (click)="registerUser()" class="check" id="register-button">Register</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>

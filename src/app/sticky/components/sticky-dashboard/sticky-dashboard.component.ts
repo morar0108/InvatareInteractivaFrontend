@@ -12,7 +12,18 @@ import {EditStickyComponent} from "../edit-sticky/edit-sticky.component";
 })
 export class StickyDashboardComponent implements OnInit{
 
-  stickyList: Sticky[] = [];
+  stickyList: Sticky[] = [{
+    id: 0,
+    title: 'Title1',
+    description: 'Description1',
+    categoryName: 'Category1'
+  },
+    {
+      id: 2,
+      title: 'Title3',
+      description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+      categoryName: 'Category1'
+    }];
 
   constructor(public stickyService: StickyService, private router: Router, public dialogService: MatDialog) {
   }

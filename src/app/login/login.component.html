@@ -4,10 +4,11 @@
     <div class="col-md-6">
     </div>
     <div class="col-md-4 mt-3 mb-2">
-      <h3 class="text" style="font-size: 30px; color: #4a4e69"><b>Welcome To Sticky App</b></h3>
+      <h3 class="text" style="font-size: 30px; color: #fff"><b>Welcome To Sticky App</b></h3>
 
       <form action="" class="mt-5 login-form" [formGroup]="formGroup" (ngSubmit)="checkActive()">
-        <h5 class="text" style="font-size: 25px; color: #4a4e69">Login</h5>
+        <div class="note-crease"></div>
+        <h5 class="text" style="font-size: 25px; color: #2f2d37">Login</h5>
         <div>
           <mat-icon>person</mat-icon>
           <mat-form-field class="mat-form">
@@ -30,20 +31,26 @@
           User inactive
         </p>
         <div>
-          <table>
+          <table class="captcha-table">
             <tr>
               <td class="first-td" style="background-image: url('../../assets/images/captcha-bg.png')">
                 <canvas width="220" height="60" class="canvas" id="canvas"></canvas>
               </td>
               <td>
-                <img (click)="regenerateCaptcha()" class="refresh-btn" height="30px" width="30px"id="refresh-img">
+                <mat-icon (click)="regenerateCaptcha()" class="refresh-btn" height="30px" width="30px" id="refresh-img">
+                  refresh
+                </mat-icon>
               </td>
             </tr>
             <tr>
               <td><input type="text" size="30" id="typedText" placeholder="Enter captcha" class="inputText"></td>
-              <td><button type="submit" (click)="checkCaptcha()" class="check" id="login-button">Login</button></td>
             </tr>
           </table>
+          <div class="buttons-container">
+            <button type="submit" (click)="checkCaptcha()" class="check" id="login-button">Login</button>
+            <button type="submit" (click)="register()" class="check" id="register-button">Register</button>
+
+          </div>
           <div>
             <p class="mat-error" *ngIf="showErrorCaptcha">
               Invalid captcha

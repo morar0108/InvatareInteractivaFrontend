@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../user/service/user.service";
@@ -15,8 +15,11 @@ import {User} from "../user/models/user";
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
   protected aFormGroup!: FormGroup;
+
   constructor(private authService: AuthServiceService, private router: Router, private formBuilder: FormBuilder,
-              private userService:UserService) { }
+              private userService: UserService) {
+  }
+
   showErrorMessage = false;
   showErrorCaptcha = false;
   showUserDeact = false;
@@ -24,57 +27,69 @@ export class LoginComponent implements OnInit {
   userList!: User[];
   user: any;
   noOfAttempts = 0;
+
   ngOnInit() {
     getCaptcha();
     this.initForm();
     this.aFormGroup = this.formBuilder.group({
-      recaptcha: ['',Validators.required]
+      recaptcha: ['', Validators.required]
     });
   }
-  initForm(){
+
+  initForm() {
     this.formGroup = new FormGroup({
-        username: new FormControl("",[Validators.required]),
-        password: new FormControl("",[Validators.required])
+        username: new FormControl("", [Validators.required]),
+        password: new FormControl("", [Validators.required])
       },
     );
   }
+
   refreshData(): void {
     this.userService.readUsers().subscribe((payload) => {
       this.userList = payload
     })
   }
-  regenerateCaptcha(){
+
+  regenerateCaptcha() {
     getCaptcha();
   }
-  checkCaptcha(){
+
+  checkCaptcha() {
     checkIt();
   }
 
+  register() {
+    this.router.navigate(['register']);
+  }
+
   checkActive() {
-    this.authService.loginUser(this.formGroup.value).subscribe({next: (resulted: string) => {
+    this.authService.loginUser(this.formGroup.value).subscribe({
+      next: (resulted: string) => {
         this.showErrorInactive = false;
         this.showErrorMessage = false;
         this.showUserDeact = false;
         this.showErrorCaptcha = false;
-        if (resulted=='passed') {
-          localStorage.setItem('userPassed','1');
-          this.authService.loginPass(this.formGroup.value).subscribe({next: (resultedValue: string) => {
-              if (resultedValue=='passed') {
+        if (resulted == 'passed') {
+          localStorage.setItem('userPassed', '1');
+          this.authService.loginPass(this.formGroup.value).subscribe({
+            next: (resultedValue: string) => {
+              if (resultedValue == 'passed') {
                 this.authService.isActive(this.formGroup.value).subscribe(({
                   next: (checkResult: boolean) => {
                     if (checkResult) {
                       this.loginProcess();
-                    }
-                    else {
+                    } else {
                       this.showErrorInactive = true;
                     }
                   }
                 }))
               } else {
-                if (this.noOfAttempts==4){
-                  this.authService.deactivateUser(this.formGroup.controls['username'].value).subscribe({next: ()=>{
+                if (this.noOfAttempts == 4) {
+                  this.authService.deactivateUser(this.formGroup.controls['username'].value).subscribe({
+                    next: () => {
                       // user is now deactivated
-                    }})
+                    }
+                  })
                   this.showErrorMessage = true;
                   this.showUserDeact = true;
                   this.noOfAttempts = 0;
@@ -83,12 +98,14 @@ export class LoginComponent implements OnInit {
                   this.showErrorMessage = true;
                 }
               }
-            }})
+            }
+          })
         } else {
-          localStorage.setItem('userPassed','0');
+          localStorage.setItem('userPassed', '0');
           this.showErrorMessage = true;
         }
-      }})
+      }
+    })
   }
 
   loginProcess() {
@@ -99,10 +116,10 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.formGroup.value).subscribe({
         next: (result: string) => {
           if (result) {
-            if (localStorage.getItem('captchaTrue')=='1') {
+            if (localStorage.getItem('captchaTrue') == '1') {
               localStorage.setItem('token', result);
-              localStorage.setItem('loginPassed','1');
-              localStorage.setItem('username',this.formGroup.controls['username'].value);
+              localStorage.setItem('loginPassed', '1');
+              localStorage.setItem('username', this.formGroup.controls['username'].value);
               this.router.navigate(['sticky']);
               alert('working');
             } else {
