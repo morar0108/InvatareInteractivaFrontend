@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
       gender: ['', Validators.required],
       email: ['', [Validators.required]],
       username: ['', Validators.required],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
