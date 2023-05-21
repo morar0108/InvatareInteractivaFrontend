@@ -12,7 +12,7 @@
         <mat-card-header>
           <mat-card-title>{{ sticky.title }}</mat-card-title>
           <div class="button-group">
-            <button mat-icon-button color="accent" class="edit-button" (click)="openEditDialog()">
+            <button mat-icon-button color="accent" class="edit-button" (click)="openEditDialog(sticky)">
               <span class="edit-button-text">Edit</span>
             </button>
             <button mat-icon-button color="warn" class="delete-button" (click)="deleteSticky(sticky)">

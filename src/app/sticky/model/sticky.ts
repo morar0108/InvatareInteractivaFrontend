@@ -1,5 +1,3 @@
-import {Category} from "../../category/model/category";
-
 export interface Sticky{
 
   id: number;

@@ -20,11 +20,11 @@ export class StickyService {
   }
 
   public deleteSticky(sticky: Sticky): Observable<any>{
-    return this.backendService.delete("", sticky);
+    return this.backendService.delete(`http://localhost:4201/${sticky.id}`);
   }
 
   public editSticky(sticky: Sticky): Observable<any>{
-    return this.backendService.put("", sticky);
+    return this.backendService.put(`http://localhost:4201/${sticky.id}`, sticky);
   }
 
   getStickyNoteById(stickyNoteId: number) {

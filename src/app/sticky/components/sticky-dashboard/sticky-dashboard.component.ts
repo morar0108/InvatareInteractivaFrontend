@@ -18,14 +18,18 @@ export class StickyDashboardComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.getStickyList();
+  }
+
+  getStickyList() {
     this.stickyService.readStickyList().subscribe((response) =>{
       this.stickyList = response;
+      console.log(response);
     })
   }
 
-
-  openEditDialog() {
-    this.router.navigate(['/edit-sticky']);
+  openEditDialog(sticky: Sticky) {
+    this.router.navigate(['/edit-sticky'], {queryParams: {stickyId: sticky.id}});
   }
 
   openAddSticky() {
@@ -33,6 +37,11 @@ export class StickyDashboardComponent implements OnInit{
   }
 
   deleteSticky(sticky: Sticky) {
-
+    this.stickyService.deleteSticky(sticky).subscribe(() => {
+      alert('Sticky note deleted successfully!');
+      this.getStickyList();
+    }, error => {
+      alert('Error when trying to delete sticky note!');
+    })
   }
 }
